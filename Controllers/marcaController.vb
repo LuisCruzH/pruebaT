@@ -1,5 +1,6 @@
 ﻿Imports System.Data.Entity
 Imports System.Web.Mvc
+Imports pruebaT
 
 Namespace Controllers
     Public Class marcaController
@@ -25,14 +26,15 @@ Namespace Controllers
             Return View(marca)
         End Function
 
-        Function Editar() As ActionResult
-            Return View()
+        Function Editar(id As Integer) As ViewResult
+            Dim movie As Marca = db.Marca.Find(id)
+            Return View(movie)
         End Function
 
         <HttpPost()>
         Function Editar(marca As Marca) As ActionResult
             If ModelState.IsValid Then
-                db.Entry(marca).State = EntityState.Added
+                db.Entry(marca).State = EntityState.Modified
                 db.SaveChanges()
                 Return RedirectToAction("Index")
             End If

@@ -1,7 +1,7 @@
 ﻿@Code
     ViewData("Title") = "Agregar"
 End Code
-@ModelType  MarcaCLS
+@ModelType  pruebaT.Marca
 <h2>Agregar Marca</h2>
 <div class="container">
     <div class="row">
